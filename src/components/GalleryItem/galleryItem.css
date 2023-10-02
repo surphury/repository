@@ -1,0 +1,3 @@
+.gallery-item:hover > .hidden-content {
+  transform: scale(1);
+}

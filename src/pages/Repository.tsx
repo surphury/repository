@@ -1,122 +1,16 @@
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 
-import { Sidebar } from 'flowbite-react';
-import { twMerge } from 'tailwind-merge';
-import {
-  HiOutlineMinusSm,
-  HiOutlinePlusSm,
-  HiArrowSmRight,
-  HiChartPie,
-  HiInbox,
-  HiShoppingBag,
-  HiTable,
-  HiUser,
-  HiViewBoards
-} from 'react-icons/hi';
-import { Link } from '../components/NavLink';
-
-const links = [
-  {
-    title: 'Tema 1',
-    to: '',
-    icon: HiTable
-  },
-  {
-    title: 'Tema 1',
-    to: '',
-    icon: HiTable
-  },
-  {
-    title: 'Tema 1',
-    to: '',
-    icon: HiTable
-  },
-  {
-    title: 'Lista de Temas',
-    children: [
-      {
-        title: 'Tema 1',
-        to: '',
-        icon: HiTable
-      },
-      {
-        title: 'Tema 1',
-        to: '',
-        icon: HiTable
-      },
-      {
-        title: 'Tema 1',
-        to: '',
-        icon: HiTable
-      }
-    ]
-  },
-  {
-    title: 'Tema 1',
-    to: '',
-    icon: HiTable
-  },
-  {
-    title: 'Tema 1',
-    to: '',
-    icon: HiTable
-  }
-];
+import { Aside } from '../components/Aside';
 
 export function Repository() {
   return (
     <>
       <Header />
       <div className="flex flex-wrap">
-        <aside className="max-w-min mx-auto md:mx-0 basis-4/12 ">
-          <Sidebar aria-label="Sidebar with multi-level dropdown example">
-            <Sidebar.Items>
-              <Sidebar.ItemGroup>
-                {links.map(({ title, children, icon, to }) => {
-                  return !children ? (
-                    <Sidebar.Item icon={icon}>
-                      <Link to={to} className="" activeClassName="">
-                        {title}
-                      </Link>
-                    </Sidebar.Item>
-                  ) : (
-                    <Sidebar.Collapse
-                      icon={HiOutlinePlusSm}
-                      label="E-commerce"
-                      renderChevronIcon={(theme, open) => {
-                        const IconComponent = open
-                          ? HiOutlineMinusSm
-                          : HiOutlinePlusSm;
-                        return (
-                          <IconComponent
-                            aria-hidden
-                            className={twMerge(
-                              theme.label?.icon?.open &&
-                                theme.label?.icon?.open[open ? 'on' : 'off']
-                            )}
-                          />
-                        );
-                      }}
-                    >
-                      {children.map(({ icon, title, to }) => {
-                        return (
-                          <Sidebar.Item icon={icon}>
-                            <Link to={to} className="" activeClassName="">
-                              {title}
-                            </Link>
-                          </Sidebar.Item>
-                        );
-                      })}
-                    </Sidebar.Collapse>
-                  );
-                })}
-              </Sidebar.ItemGroup>
-            </Sidebar.Items>
-          </Sidebar>
-        </aside>
+        <Aside />
         <main className="basis-8/12 flex-grow">
-          <h1 className="mb-4 text-lg font-bold leading-none tracking-tight  md:text-2xl lg:text-4xl dark:text-white text-center text-cyan-700">
+          <h1 className="mb-4 text-lg font-bold leading-none tracking-tight  md:text-2xl lg:text-4xl text-center text-base">
             Lorem ipsum dolor sit amet
           </h1>
 
@@ -128,7 +22,7 @@ export function Repository() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                  className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-accent-5 bg-primary border border-accent-3 rounded-l-lg hover:bg-accent-2 hover:text-accent-7"
                 >
                   Previous
                 </a>
@@ -136,7 +30,7 @@ export function Repository() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                  className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-accent-5 bg-primary border border-accent-3 rounded-l-lg hover:bg-accent-2 hover:text-accent-7"
                 >
                   1
                 </a>
@@ -144,7 +38,7 @@ export function Repository() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                  className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-accent-5 bg-primary border border-accent-3 rounded-l-lg hover:bg-accent-2 hover:text-accent-7"
                 >
                   2
                 </a>
@@ -153,7 +47,7 @@ export function Repository() {
                 <a
                   href="#"
                   aria-current="page"
-                  className="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+                  className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-accent-5 bg-primary border border-accent-3 rounded-l-lg hover:bg-accent-2 hover:text-accent-7"
                 >
                   3
                 </a>
@@ -161,7 +55,7 @@ export function Repository() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                  className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-accent-5 bg-primary border border-accent-3 rounded-l-lg hover:bg-accent-2 hover:text-accent-7"
                 >
                   4
                 </a>
@@ -169,7 +63,7 @@ export function Repository() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                  className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-accent-5 bg-primary border border-accent-3 rounded-l-lg hover:bg-accent-2 hover:text-accent-7"
                 >
                   5
                 </a>
@@ -177,7 +71,7 @@ export function Repository() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                  className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-accent-5 bg-primary border border-accent-3 rounded-l-lg hover:bg-accent-2 hover:text-accent-7"
                 >
                   Next
                 </a>
@@ -206,16 +100,23 @@ export function Repository() {
                     >
                       <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                     </svg>
-                    <p className="ml-2 text-sm font-bold text-primary dark:text-white">
-                      4.95
-                    </p>
-                    <span className="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
-                    <a
-                      href="#"
-                      className="text-sm font-medium text-primary underline hover:no-underline dark:text-white"
+                    <p className="ml-2 text-sm font-bold text-primary">4.95</p>
+                    <span className="w-1 h-1 mx-1.5 bg-accent-5 rounded-full dark:bg-accent-4"></span>
+                    <button
+                      type="button"
+                      className="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center"
                     >
-                      73 reviews
-                    </a>
+                      <svg
+                        className="w-4 h-4"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 18 18"
+                      >
+                        <path d="M3 7H1a1 1 0 0 0-1 1v8a2 2 0 0 0 4 0V8a1 1 0 0 0-1-1Zm12.954 0H12l1.558-4.5a1.778 1.778 0 0 0-3.331-1.06A24.859 24.859 0 0 1 6 6.8v9.586h.114C8.223 16.969 11.015 18 13.6 18c1.4 0 1.592-.526 1.88-1.317l2.354-7A2 2 0 0 0 15.954 7Z" />
+                      </svg>
+                      <span className="sr-only">Icon description</span>
+                    </button>
                   </div>
                 </li>
               );

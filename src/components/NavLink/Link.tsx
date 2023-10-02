@@ -13,7 +13,10 @@ export function Link({
   activeClassName: string;
 }) {
   return (
-    <NavLink to={to} className={className + ' ' + activeClassName}>
+    <NavLink
+      to={to}
+      className={'text-base' + ' ' + className + ' ' + activeClassName}
+    >
       {children}
     </NavLink>
   );

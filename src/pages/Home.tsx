@@ -19,6 +19,7 @@ import {
 } from '../assets/img';
 import { Banner } from '../components/Banner';
 import { Footer } from '../components/Footer';
+import { GalleryItem } from '../components/GalleryItem';
 
 export function Home() {
   return (
@@ -41,7 +42,9 @@ export function Home() {
             </Carousel>
           </div>
           <section>
-            <h2></h2>
+            <h2 className="basis-full text-4xl font-extrabold text-base text-center mb-5">
+              Presentacion del Equipo
+            </h2>
 
             <div className="flex justify-evenly flex-wrap">
               {galleryData.map((item) => {
@@ -55,7 +58,7 @@ export function Home() {
           </section>
 
           <section className="clientes contenedor">
-            <h2 className="text-[#642a73] text-3xl text-center mb-[60px]">
+            <h2 className="basis-full text-4xl font-extrabold text-base text-center mb-5">
               Que dicen nuestros clientes
             </h2>
             <div className="cards gap-4 flex flex-wrap">
@@ -72,7 +75,9 @@ export function Home() {
 
           <section className="about-services">
             <div className="contenedor flex flex-wrap gap-3 justify-center">
-              <h2 className="titulo basis-full">Nuestros servicios</h2>
+              <h2 className="basis-full text-4xl font-extrabold text-base text-center mb-5">
+                Nuestros servicios
+              </h2>
               <Card
                 image={ilustracion1}
                 title="Noteworthy technology acquisitions 2021"
@@ -130,26 +135,6 @@ export function CarouselItem({
   );
 }
 
-export function GalleryItem({
-  icon,
-  image,
-  children
-}: {
-  icon: string;
-  image: string;
-  children: ReactNode;
-}) {
-  return (
-    <div className="basis-[24%] scale-100 relative cursor-pointer shadow-[0_0_6px_0_rgba(0,0,0,0.5)] mb-2.5">
-      <img src={image} alt="" className="" />
-      <div className="absolute w-full h-full transition-transform duration-[0.5s] flex justify-center items-center flex-col scale-0 top-0 :hover:scale-100">
-        <img src={icon} alt="" className="w-full h-full object-cover block" />
-        <p>{children}</p>
-      </div>
-    </div>
-  );
-}
-
 export function ClientCard({
   name,
   image,
@@ -160,15 +145,15 @@ export function ClientCard({
   children: ReactNode;
 }) {
   return (
-    <div className="max-w-lg mx-auto my-10 bg-stone-100 rounded-lg shadow-md p-5">
+    <div className="max-w-lg mx-auto my-10 bg-primary-2 rounded-lg shadow-md p-5">
       <img
         className="w-32 h-32 rounded-full mx-auto object-cover"
         src={image}
         alt="Profile picture"
       />
-      <h2 className="text-center font-semibold mt-3">{name}</h2>
+      <h2 className="text-center font-semibold mt-3 text-base">{name}</h2>
       <div className="mt-5">
-        <p className="mt-2 max-w-[15rem] text-sm">{children}</p>
+        <p className="mt-2 max-w-[15rem] text-sm text-base">{children}</p>
       </div>
     </div>
   );
@@ -183,7 +168,7 @@ export function Card({
   children: ReactNode;
 }) {
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+    <div className="max-w-sm bg-primary-2 border border-accent-2 rounded-lg shadow">
       <a href="#">
         <img className="rounded-t-lg" src={image} alt={title} />
       </a>
@@ -193,7 +178,7 @@ export function Card({
             {title}
           </h5>
         </a>
-        <p className="mb-3 font-normal text-gray-700">{children}</p>
+        <p className="mb-3 font-normal text-accent-7">{children}</p>
       </div>
     </div>
   );

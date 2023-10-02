@@ -5,7 +5,9 @@ export function Banner() {
     <header className="header bg-cover">
       <section className="textos-header min-h-[600px] relative grid">
         <div className="place-self-center grid gap-5">
-          <h1 className="text-white text-5xl">Investigando para Educar</h1>
+          <h1 className="text-4xl font-extrabold text-white">
+            Investigando para Educar
+          </h1>
 
           <h2 className="text-white text-lg font-semibold">
             Con una página web potente
@@ -22,7 +24,7 @@ export function Banner() {
           >
             <path
               d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
-              className="fill-white stroke-none"
+              className="fill-primary stroke-none"
             ></path>
           </svg>
         </div>
