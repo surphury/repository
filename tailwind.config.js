@@ -53,6 +53,9 @@ export default {
       },
       scale: {
         120: '1.2'
+      },
+      aspectRatio: {
+        '358/510': '358 / 510'
       }
     }
   },

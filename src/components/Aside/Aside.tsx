@@ -1,7 +1,7 @@
 import { Sidebar } from 'flowbite-react';
 import { twMerge } from 'tailwind-merge';
 import { HiOutlineMinusSm, HiOutlinePlusSm, HiTable } from 'react-icons/hi';
-import { Link } from '../../components/NavLink';
+/* import { Link } from '../../components/NavLink'; */
 
 export function Aside() {
   return (
@@ -9,12 +9,12 @@ export function Aside() {
       <Sidebar aria-label="Sidebar with multi-level dropdown example">
         <Sidebar.Items>
           <Sidebar.ItemGroup>
-            {links.map(({ title, children, icon, to }) => {
+            {links.map(({ title, children, icon, to }, index) => {
               return !children ? (
-                <Sidebar.Item icon={icon}>
-                  <Link to={to} className="" activeClassName="">
-                    {title}
-                  </Link>
+                <Sidebar.Item icon={icon} key={index} href={to}>
+                  {/*  <Link to={to} className="" activeClassName=""> */}
+                  {title}
+                  {/*  </Link> */}
                 </Sidebar.Item>
               ) : (
                 <Sidebar.Collapse
@@ -34,13 +34,14 @@ export function Aside() {
                       />
                     );
                   }}
+                  key={index}
                 >
-                  {children.map(({ icon, title, to }) => {
+                  {children.map(({ icon, title, to }, i) => {
                     return (
-                      <Sidebar.Item icon={icon}>
-                        <Link to={to} className="" activeClassName="">
-                          {title}
-                        </Link>
+                      <Sidebar.Item icon={icon} key={index + i} href={to}>
+                        {/* <Link to={to} className="" activeClassName=""> */}
+                        {title}
+                        {/* </Link> */}
                       </Sidebar.Item>
                     );
                   })}

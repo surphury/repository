@@ -2,7 +2,7 @@ import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { Aside } from '../components/Aside';
 
-import { articleImage } from '../assets/img';
+/* import { articleImage } from '../assets/img'; */
 
 export function Articles() {
   return (
@@ -11,7 +11,7 @@ export function Articles() {
       <div className="flex flex-wrap">
         <Aside />
         <main className="basis-8/12 flex-grow grid gap-y-10 py-5 p-2">
-          {[1, 2, 3, 4, 5].map(() => {
+          {/*  {[1, 2, 3, 4, 5].map((e,i) => {
             return (
               <div className="flex items-center border border-accent-2 rounded-lg shadow-sm bg-primary-2">
                 <img
@@ -35,7 +35,7 @@ export function Articles() {
                 </figure>
               </div>
             );
-          })}
+          })} */}
         </main>
       </div>
       <Footer />
