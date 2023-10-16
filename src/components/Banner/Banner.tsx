@@ -5,11 +5,11 @@ export function Banner() {
     <header className="header bg-cover">
       <section className="textos-header min-h-[600px] relative grid">
         <div className="place-self-center grid gap-5">
-          <h1 className="text-4xl font-extrabold text-white">
+          <h1 className="text-6xl font-extrabold text-white">
             Investigando para Educar
           </h1>
 
-          <h2 className="text-white text-lg font-semibold">
+          <h2 className="text-white text-2xl font-semibold">
             Con una página web potente
           </h2>
         </div>

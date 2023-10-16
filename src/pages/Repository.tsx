@@ -3,17 +3,70 @@ import { Header } from '../components/Header';
 
 import { Aside } from '../components/Aside';
 import { articleImage } from '../assets/img';
+import { useEffect, useState } from 'react';
+/* import { articleImage } from '../assets/img'; */
+import { defaultImg } from '../assets/img';
 import { Link } from 'react-router-dom';
 
 export function Repository() {
+  let pagin:any = {
+    page: 1,
+    total: 0,
+    size_rows: 10,
+  }
+  
+  const [data, setData] = useState<any>([]);
+  const [cargando, setCargando] = useState(false);
+
+  // useEffect se ejecutará después de que el componente se monte
+  useEffect(() => {
+    // Realizar una solicitud HTTP
+    fetch('http://localhost:3000/content',
+    {method:'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      category_alias: alias,
+      page: pagin.page,
+      size_rows: pagin.size_rows
+    })})
+      .then((response) => response.json())
+      .then((responseData) => {
+        // Actualizar el estado con los datos obtenidos
+        setData(responseData);
+        setCargando(false)
+      })
+      .catch((error) => {
+        console.error('Error al obtener datos:', error);
+        setCargando(false)
+      });
+  }, [cargando]); 
+
+  const handlePagination = (number:number) => {
+    if(number==0)pagin.pagin+=1
+    else if(number==-1)pagin.pagin-=1
+    else pagin.pagin=number
+    setCargando(true)
+    return undefined
+  };
+
+  const handleSections = (aliass:any) => {
+    setDataAlias(aliass)
+    setCargando(true)
+    return undefined
+  };
+
+  const [alias, setDataAlias] = useState('cat_review');
+  
   return (
     <>
       <Header />
       <div className="flex flex-wrap">
-        <Aside />
+        <Aside  data={alias} handleSections={handleSections} />
         <main className="basis-8/12 flex-grow">
           <h1 className="mb-4 text-lg font-bold leading-none tracking-tight  md:text-2xl lg:text-4xl text-center text-base">
-            Lorem ipsum dolor sit amet
+            REPOSITORIO
           </h1>
 
           <nav
@@ -22,59 +75,22 @@ export function Repository() {
           >
             <ul className="inline-flex -space-x-px text-sm mx-auto">
               <li>
-                <a
-                  href="#"
-                  className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-accent-5 bg-primary border border-accent-3 rounded-l-lg hover:bg-accent-2 hover:text-accent-7"
-                >
+                <a onClick={()=>handlePagination(-1)}className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-accent-5 bg-primary border border-accent-3 rounded-l-lg hover:bg-accent-2 hover:text-accent-7">
                   Previous
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-accent-5 bg-primary border border-accent-3 rounded-l-lg hover:bg-accent-2 hover:text-accent-7"
-                >
+                <a onClick={()=>handlePagination(1)} className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-accent-5 bg-primary border border-accent-3  hover:bg-accent-2 hover:text-accent-7">
                   1
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-accent-5 bg-primary border border-accent-3 rounded-l-lg hover:bg-accent-2 hover:text-accent-7"
-                >
+                <a onClick={()=>handlePagination(2)}  className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-accent-5 bg-primary border border-accent-3  hover:bg-accent-2 hover:text-accent-7">
                   2
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  aria-current="page"
-                  className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-accent-5 bg-primary border border-accent-3 rounded-l-lg hover:bg-accent-2 hover:text-accent-7"
-                >
-                  3
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-accent-5 bg-primary border border-accent-3 rounded-l-lg hover:bg-accent-2 hover:text-accent-7"
-                >
-                  4
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-accent-5 bg-primary border border-accent-3 rounded-l-lg hover:bg-accent-2 hover:text-accent-7"
-                >
-                  5
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-accent-5 bg-primary border border-accent-3 rounded-l-lg hover:bg-accent-2 hover:text-accent-7"
-                >
+                <a onClick={()=>handlePagination(0)} className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-accent-5 bg-primary border border-accent-3 rounded-r-lg hover:bg-accent-2 hover:text-accent-7">
                   Next
                 </a>
               </li>
@@ -82,26 +98,26 @@ export function Repository() {
           </nav>
 
           <ul className="min-2xl:w-max mx-auto flex flex-col gap-4 px-4">
-            {repos.map(({ subtitle, title, img, link }, i) => {
+            {data.map((e:any, i:any) => {
               return (
                 <li
-                  className="p-6 border border-gray-200 rounded-lg shadow-md bg-primary-2"
+                  className="p-6 border border-gray-200 rounded-lg shadow-md bg-primary-2 flex gap-6"
                   key={i}
                 >
-                  <Link to={'/content' + link} className="flex gap-6">
+                  <Link to={'/content'+'/'+e.content_id} className="flex gap-6">
                     <div>
-                      <img
-                        src={img}
-                        alt={title}
+                      <img 
+                        src={e.has_img?'http://localhost:3000/img/'+e.route_img:defaultImg}
+                        alt={e.title}
                         className="max-w-[7em] aspect-[358/510]"
-                      />
+                      /> 
                     </div>
                     <div className="grid">
-                      <h5 className="mb-2 text-2xl font-semibold tracking-tight text-cyan-700 dark:text-white">
-                        {title}
+                      <h5 className="DoPointer mb-2 text-2xl font-semibold tracking-tight text-cyan-700 dark:text-white">
+                        {e.content_title}
                       </h5>
                       <p className="font-normal max-w-4xl text-gray-500 dark:text-gray-400">
-                        {subtitle}
+                        {e.content_description}...
                       </p>
 
                       <div className="flex items-center self-end">
@@ -135,6 +151,7 @@ export function Repository() {
                       </div>
                     </div>
                   </Link>
+                  
                 </li>
               );
             })}
@@ -151,70 +168,60 @@ const repos = [
     title: 'Boletín COVID-19',
     subtitle:
       'Información que incluye información científica sobre el COVID-19 en colaboración con la Asociación Peruana de Bibliotecas Académicas ALTAMIRA',
-    img: articleImage,
-    link: ''
+    img: articleImage
   },
   {
     title: 'Boletín COVID-19',
     subtitle:
       'Información que incluye información científica sobre el COVID-19 en colaboración con la Asociación Peruana de Bibliotecas Académicas ALTAMIRA',
-    img: articleImage,
-    link: ''
+    img: articleImage
   },
   {
     title: 'Boletín COVID-19',
     subtitle:
       'Información que incluye información científica sobre el COVID-19 en colaboración con la Asociación Peruana de Bibliotecas Académicas ALTAMIRA',
-    img: articleImage,
-    link: ''
+    img: articleImage
   },
   {
     title: 'Boletín COVID-19',
     subtitle:
       'Información que incluye información científica sobre el COVID-19 en colaboración con la Asociación Peruana de Bibliotecas Académicas ALTAMIRA',
-    img: articleImage,
-    link: ''
+    img: articleImage
   },
   {
     title: 'Boletín COVID-19',
     subtitle:
       'Información que incluye información científica sobre el COVID-19 en colaboración con la Asociación Peruana de Bibliotecas Académicas ALTAMIRA',
-    img: articleImage,
-    link: ''
+    img: articleImage
   },
   {
     title: 'Boletín COVID-19',
     subtitle:
       'Información que incluye información científica sobre el COVID-19 en colaboración con la Asociación Peruana de Bibliotecas Académicas ALTAMIRA',
-    img: articleImage,
-    link: ''
+    img: articleImage
   },
   {
     title: 'Boletín COVID-19',
     subtitle:
       'Información que incluye información científica sobre el COVID-19 en colaboración con la Asociación Peruana de Bibliotecas Académicas ALTAMIRA',
-    img: articleImage,
-    link: ''
+    img: articleImage
   },
   {
     title: 'Boletín COVID-19',
     subtitle:
       'Información que incluye información científica sobre el COVID-19 en colaboración con la Asociación Peruana de Bibliotecas Académicas ALTAMIRA',
-    img: articleImage,
-    link: ''
+    img: articleImage
   },
   {
     title: 'Boletín COVID-19',
     subtitle:
       'Información que incluye información científica sobre el COVID-19 en colaboración con la Asociación Peruana de Bibliotecas Académicas ALTAMIRA',
-    img: articleImage,
-    link: ''
+    img: articleImage
   },
   {
     title: 'Boletín COVID-19',
     subtitle:
       'Información que incluye información científica sobre el COVID-19 en colaboración con la Asociación Peruana de Bibliotecas Académicas ALTAMIRA',
-    img: articleImage,
-    link: ''
+    img: articleImage
   }
 ];

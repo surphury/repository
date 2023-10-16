@@ -2,23 +2,21 @@ import { Sidebar } from 'flowbite-react';
 import { twMerge } from 'tailwind-merge';
 import { HiOutlineMinusSm, HiOutlinePlusSm, HiTable } from 'react-icons/hi';
 
-export function Aside() {
+export function Aside({data,handleSections}:any) {
+  const handleAc = (ae:any)=>{
+    const newData=ae
+    handleSections(newData)
+  }
   return (
     <aside className="max-w-min mx-auto md:mx-0 basis-4/12 ">
       <Sidebar aria-label="Sidebar with multi-level dropdown example">
         <Sidebar.Items>
           <Sidebar.ItemGroup>
-            {links.map(({ title, children, icon, to }, index) => {
-              return !children ? (
-                <Sidebar.Item icon={icon} key={index} href={to}>
-                  {/*  <Link to={to} className="" activeClassName=""> */}
-                  {title}
-                  {/*  </Link> */}
-                </Sidebar.Item>
-              ) : (
+            {links.map(({ title, children}, index) => {
+              return (
                 <Sidebar.Collapse
                   icon={HiOutlinePlusSm}
-                  label="E-commerce"
+                  label={title}
                   renderChevronIcon={(theme, open) => {
                     const IconComponent = open
                       ? HiOutlineMinusSm
@@ -35,9 +33,9 @@ export function Aside() {
                   }}
                   key={index}
                 >
-                  {children.map(({ icon, title, to }, i) => {
+                  {children.map(({ icon, title, alias }, i) => {
                     return (
-                      <Sidebar.Item icon={icon} key={index + i} href={to}>
+                      <Sidebar.Item className="DoPointer" icon={icon} key={index + i} onClick={()=>handleAc(alias)}>
                         {/* <Link to={to} className="" activeClassName=""> */}
                         {title}
                         {/* </Link> */}
@@ -56,48 +54,26 @@ export function Aside() {
 
 const links = [
   {
-    title: 'Tema 1',
-    to: '',
-    icon: HiTable
-  },
-  {
-    title: 'Tema 1',
-    to: '',
-    icon: HiTable
-  },
-  {
-    title: 'Tema 1',
-    to: '',
-    icon: HiTable
-  },
-  {
-    title: 'Lista de Temas',
+    title: 'Secciones',
     children: [
       {
-        title: 'Tema 1',
+        title: 'revistas',
         to: '',
-        icon: HiTable
+        icon: HiTable,
+        alias:'cat_review'
       },
       {
-        title: 'Tema 1',
+        title: 'libros',
         to: '',
-        icon: HiTable
+        icon: HiTable,
+        alias:'cat_book'
       },
       {
-        title: 'Tema 1',
+        title: 'articulos',
         to: '',
-        icon: HiTable
+        icon: HiTable,
+        alias:'cat_article'
       }
     ]
-  },
-  {
-    title: 'Tema 1',
-    to: '',
-    icon: HiTable
-  },
-  {
-    title: 'Tema 1',
-    to: '',
-    icon: HiTable
   }
 ];
