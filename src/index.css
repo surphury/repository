@@ -47,6 +47,16 @@
     --hover: rgba(255, 255, 255, 0.075);
     --hover-1: rgba(255, 255, 255, 0.15);
     --hover-2: rgba(255, 255, 255, 0.25);
+    --cyan: #22b8cf;
+    --green: #37b679;
+    --red: #da3c3c;
+    --purple: #f81ce5;
+    --blue: #0070f3;
+    --pink: #ff0080;
+    --pink-light: #ff379c;
+    --magenta: #eb367f;
+    --violet: #7928ca;
+    --violet-dark: #4c2889;
     --selection: var(--purple);
     --text-base: white;
     --text-primary: white;

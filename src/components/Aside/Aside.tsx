@@ -1,7 +1,6 @@
 import { Sidebar } from 'flowbite-react';
 import { twMerge } from 'tailwind-merge';
 import { HiOutlineMinusSm, HiOutlinePlusSm, HiTable } from 'react-icons/hi';
-/* import { Link } from '../../components/NavLink'; */
 
 export function Aside() {
   return (
