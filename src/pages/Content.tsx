@@ -1,4 +1,4 @@
-import { articleImage } from '../assets/img';
+import { useEffect, useState } from 'react';
 import { Aside } from '../components/Aside';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
@@ -8,15 +8,16 @@ import {
   AiFillClockCircle,
   AiFillBook
 } from 'react-icons/ai';
+import { useParams } from 'react-router-dom';
 
 export function Content() {
   const { id } = useParams();
 
-  const [content, setContent] = useState<any>([]);
+  const [content, setContent] = useState<unknown[]>([]);
 
-  const [authors, setAuthors] = useState<any>([]);
+  const [authors, setAuthors] = useState<unknown[]>([]);
 
-  const downloadContent = (route: any, name: any) => {
+  const downloadContent = (route: string, name: string) => {
     const router = 'http://localhost:3000/download/' + route;
     fetch(router)
       .then((response) => {
@@ -52,7 +53,7 @@ export function Content() {
       .catch((error) => {
         console.error('Error al obtener datos:', error);
       });
-  }, []);
+  }, [id]);
 
   return (
     <>

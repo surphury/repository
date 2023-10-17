@@ -13,7 +13,7 @@ export function GalleryItem({
   icon: string;
   image: string;
   children: ReactNode;
-  name: string;
+  name?: string;
 }) {
   const [openModal, setOpenModal] = useState<string | undefined>();
   const props = { openModal, setOpenModal };

@@ -2,13 +2,9 @@
 import { Header } from '../components/Header';
 import { Carousel } from 'flowbite-react';
 
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode } from 'react';
 import {
   clickIcon,
-  client,
-  ilustracion1,
-  ilustracion2,
-  ilustracion3,
   image1,
   image2,
   image3,
@@ -22,7 +18,7 @@ import { Footer } from '../components/Footer';
 import { GalleryItem } from '../components/GalleryItem';
 
 export function Home() {
-  let lBanners: any = [
+  let lBanners: any[] = [
     {
       img: 'http://localhost:3000/general/banner/banner5.jpg',
       title:
