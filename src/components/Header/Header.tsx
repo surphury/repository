@@ -30,9 +30,6 @@ export function Header() {
         <Link to="/repository" className="" activeClassName="">
           Repositorio
         </Link>
-        <Link to="/articles" className="" activeClassName="">
-          Secciones
-        </Link>
         <Link to="/events" className="" activeClassName="">
           Eventos
         </Link>

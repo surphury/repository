@@ -1,19 +1,19 @@
 .header {
   background-image: linear-gradient(
       to right,
-      hsla(340, 95%, 50%, 0.459),
-      hsla(317, 45%, 52%, 0.664)
+      hsla(0, 0%, 19%, 0.3),
+      hsla(236, 81%, 19%, 0.3)
     ),
-    url(../../assets/portada.jpg);
+    url(../../assets/img/grupal.jpg);
 }
 
 @media (prefers-color-scheme: dark) {
   .header {
     background-image: linear-gradient(
         to right,
-        hsla(248, 38%, 13%, 0.801),
-        hsla(235, 81%, 19%, 0.534)
+        hsla(0, 0%, 19%, 0.3),
+        hsla(236, 81%, 19%, 0.3)
       ),
-      url(../../assets/portada.jpg);
+      url(../../assets/img/grupal.jpg);
   }
 }
