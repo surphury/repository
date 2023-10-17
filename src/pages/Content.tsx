@@ -9,6 +9,7 @@ import {
   AiFillBook
 } from 'react-icons/ai';
 import { useParams } from 'react-router-dom';
+import { defaultImg } from '../assets/img';
 
 export function Content() {
   const { id } = useParams();
