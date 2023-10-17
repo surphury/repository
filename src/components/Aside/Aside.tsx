@@ -4,7 +4,7 @@ import { HiOutlineMinusSm, HiOutlinePlusSm, HiTable } from 'react-icons/hi';
 
 export function Aside() {
   return (
-    <aside className="max-w-min mx-auto md:mx-0 basis-4/12 ">
+    <aside className="hidden md:block max-w-min mx-auto md:mx-0 basis-4/12 ">
       <Sidebar aria-label="Sidebar with multi-level dropdown example">
         <Sidebar.Items>
           <Sidebar.ItemGroup>

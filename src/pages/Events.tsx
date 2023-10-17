@@ -142,18 +142,18 @@ export function Events() {
                               {/*  <!-- Description --> */}
                               <div className="flex flex-col">
                                 <a href="#">
-                                  <p className="text-base text-sm font-semibold">
+                                  <p className="text-primary text-sm font-semibold">
                                     Learn CSS Box Model in 8 Minutes
                                   </p>
                                 </a>
                                 <a
-                                  className="text-base-4 text-xs mt-2 "
+                                  className="text-primary text-xs mt-2 "
                                   href="#"
                                 >
                                   {' '}
                                   Web Dev Simplified{' '}
                                 </a>
-                                <p className="text-base-4 text-xs mt-1">
+                                <p className="text-primary text-xs mt-1">
                                   241K views . 3 years ago
                                 </p>
                               </div>
@@ -262,7 +262,7 @@ function Comment({
       </div>
       <div className="p-4 rounded bg-gray-50 h-auto dark:bg-[#0d1117]">
         <div className="flex justify-between items-center">
-          <a className="text-base font-bold hover:text-blue" href="#">
+          <a className="text-primary font-bold hover:text-blue" href="#">
             Respondiendo a <span className="text-blue">@susy_diaz</span>
           </a>
           <div className="flex"></div>

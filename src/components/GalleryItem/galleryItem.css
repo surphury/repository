@@ -5,3 +5,17 @@
 .gallery-item {
   overflow: hidden;
 }
+
+.gallery-item:hover {
+  background-color: var(--red);
+  transition: background 300ms;
+}
+
+.gallery-item > .main-image {
+  opacity: 0.7;
+  transition: opacity 300ms;
+}
+
+.person-image {
+  box-shadow: -0.2ch 0.1ch 1ch var(--text-primary);
+}

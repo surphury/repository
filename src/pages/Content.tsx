@@ -17,7 +17,7 @@ export function Content() {
         <Aside />
         <main className="basis-8/12 flex-grow">
           <div className="grid place-content-center gap-6">
-            <h1 className="text-2xl font-extrabold text-primary text-center mt-7">
+            <h1 className="text-2xl font-extrabold text-primary mt-7 text-center">
               TITULO DEL DOCUMENTO DE INVENTIGACION
             </h1>
             <div className="flex flex-wrap gap-6 p-4 justify-center">
@@ -40,12 +40,12 @@ export function Content() {
               </p>
               <button
                 type="button"
-                className="focus:outline-none text-white bg-green hover:bg-green focus:ring-4 focus:ring-green font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 flex gap-3"
+                className="focus:outline-none text-white bg-green hover:bg-emerald-900 transition-colors focus:ring-4 focus:ring-green font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 flex gap-3"
               >
                 <AiOutlineDownload className="h-6 w-6" />
                 <p>Click me!</p>
               </button>
-              <div className="w-full">
+              <div className="w-full flex flex-wrap gap-6 p-4">
                 <ul role="list" className="max-w-sm">
                   <li className="py-3 sm:py-4">
                     {/*  <div className="flex items-center space-x-3"> */}
@@ -74,6 +74,7 @@ export function Content() {
                     {/* </div> */}
                   </li>
                 </ul>
+                <div className="max-w-[48rem]"></div>
               </div>
             </div>
           </div>

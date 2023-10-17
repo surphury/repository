@@ -49,8 +49,12 @@ export function Home() {
             <div className="flex justify-evenly flex-wrap">
               {galleryData.map((item) => {
                 return (
-                  <GalleryItem image={item.image} icon={item.icon}>
-                    {item.text}
+                  <GalleryItem
+                    image={item.image}
+                    icon={item.icon}
+                    name={item.name}
+                  >
+                    {/*   {item.text} */} ''
                   </GalleryItem>
                 );
               })}
@@ -188,41 +192,49 @@ const galleryData = [
   {
     text: 'Nuestro Trabajo',
     image: image1,
-    icon: clickIcon
+    icon: clickIcon,
+    name: 'Karla Huamaní'
   },
   {
     text: 'Nuestro Trabajo',
     image: image2,
-    icon: clickIcon
+    icon: clickIcon,
+    name: 'Fernando Quesada'
   },
   {
     text: 'Nuestro Trabajo',
     image: image3,
-    icon: clickIcon
+    icon: clickIcon,
+    name: 'Alessandra Estrada'
   },
   {
     text: 'Nuestro Trabajo',
     image: image4,
-    icon: clickIcon
+    icon: clickIcon,
+    name: 'Dante Macazana'
   },
   {
     text: 'Nuestro Trabajo',
     image: image5,
-    icon: clickIcon
+    icon: clickIcon,
+    name: 'Naysha Coronado'
   },
   {
     text: 'Nuestro Trabajo',
     image: image6,
-    icon: clickIcon
+    icon: clickIcon,
+    name: 'Brian Vega'
   },
   {
     text: 'Nuestro Trabajo',
     image: image7,
-    icon: clickIcon
+    icon: clickIcon,
+    name: 'Eli Carrillo'
   },
   {
     text: 'Nuestro Trabajo',
     image: image7,
-    icon: clickIcon
+    icon: clickIcon,
+    name: 'Yajaira Apolinario'
   }
 ];
