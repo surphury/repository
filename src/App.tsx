@@ -5,6 +5,7 @@ import { Repository } from './pages/Repository';
 /* import { Articles } from './pages/Articles'; */
 import { Events } from './pages/Events';
 import { Content } from './pages/Content';
+import { Login } from './pages/Login';
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/content/:id',
-    element: <Content/>
+    element: <Content />
   },
   {
     path: '/repository',
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: '/events',
     element: <Events />
+  },
+  {
+    path: '/login',
+    element: <Login />
   }
 ]);
 
