@@ -11,7 +11,7 @@ import ilustracion1 from './ilustracion1.svg';
 import ilustracion2 from './ilustracion2.svg';
 import ilustracion3 from './ilustracion3.svg';
 import articleImage from './imagen1.jpg';
-
+import defaultImg from './defectoImg.png'
 export {
   image1,
   image2,
@@ -25,5 +25,6 @@ export {
   ilustracion1,
   ilustracion2,
   ilustracion3,
-  articleImage
+  articleImage,
+  defaultImg
 };

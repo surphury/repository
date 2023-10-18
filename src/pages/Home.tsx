@@ -2,7 +2,7 @@
 import { Header } from '../components/Header';
 import { Carousel } from 'flowbite-react';
 
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import {
   clickIcon,
   client,
@@ -22,87 +22,94 @@ import { Footer } from '../components/Footer';
 import { GalleryItem } from '../components/GalleryItem';
 
 export function Home() {
+  let lBanners: any = [
+    {
+      img: 'http://localhost:3000/general/banner/banner5.jpg',
+      title:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
+      header: 'MISIÓN'
+    },
+    {
+      img: 'http://localhost:3000/general/banner/banner2.jpg',
+      title:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
+      header: 'VISIÓN'
+    },
+    {
+      img: 'http://localhost:3000/general/banner/banner3.jpg',
+      title:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
+      header: '¿QUÍENES SOMOS?'
+    }
+  ];
+
+  let lPartners: any = [
+    {
+      img: 'http://localhost:3000/general/team/partner1.jpg',
+      title: 'general'
+    },
+    {
+      img: 'http://localhost:3000/general/team/partner2.jpg',
+      title: 'general'
+    },
+    {
+      img: 'http://localhost:3000/general/team/partner3.jpg',
+      title: 'general'
+    },
+    {
+      img: 'http://localhost:3000/general/team/partner4.jpg',
+      title: 'general'
+    },
+    {
+      img: 'http://localhost:3000/general/team/partner5.jpg',
+      title: 'general'
+    },
+    {
+      img: 'http://localhost:3000/general/team/partner6.jpg',
+      title: 'general'
+    },
+    {
+      img: 'http://localhost:3000/general/team/partner7.jpg',
+      title: 'general'
+    },
+    {
+      img: 'http://localhost:3000/general/team/partner8.jpg',
+      title: 'general'
+    }
+  ];
+
   return (
     <>
       <main>
         <Header />
         <Banner />
-        <section className="contenedor sobre-nosotros max-w-5xl mx-auto flex gap-5 flex-col">
+        <section className="contenedor sobre-nosotros max-w-6xl mx-auto flex gap-6 flex-col">
           <div className="">
             <Carousel>
-              <CarouselItem src={image1} title="¿Quienes somos?">
-                Some representative placeholder content for the first slide.
-              </CarouselItem>
-              <CarouselItem src={image2} title="¿Quienes somos?">
-                Some representative placeholder content for the first slide.
-              </CarouselItem>
-              <CarouselItem src={image3} title="¿Quienes somos?">
-                Some representative placeholder content for the first slide.
-              </CarouselItem>
+              {lBanners.map((e: any) => {
+                return (
+                  <CarouselItem src={e.img} title={e.header}>
+                    <h2 className="text-3xl lg:text-3xl font-bold text-white">
+                      {e.title}
+                    </h2>
+                  </CarouselItem>
+                );
+              })}
             </Carousel>
           </div>
           <section>
-            <h2 className="basis-full text-4xl font-extrabold text-base text-center mb-5">
+            <h1 className="basis-full text-4xl font-extrabold text-base text-center mb-5">
               Presentacion del Equipo
-            </h2>
+            </h1>
 
             <div className="flex justify-evenly flex-wrap">
-              {galleryData.map((item) => {
+              {lPartners.map((item: any) => {
                 return (
-                  <GalleryItem
-                    image={item.image}
-                    icon={item.icon}
-                    name={item.name}
-                  >
-                    {/*   {item.text} */} ''
+                  <GalleryItem image={item.img} icon={item.icon}>
+                    {item.title}
                   </GalleryItem>
                 );
               })}
-            </div>
-          </section>
-
-          <section className="clientes contenedor">
-            <h2 className="basis-full text-4xl font-extrabold text-base text-center mb-5">
-              Que dicen nuestros clientes
-            </h2>
-            <div className="cards gap-4 flex flex-wrap">
-              <ClientCard image={client} name="name">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae,
-                sapiente!
-              </ClientCard>
-              <ClientCard image={client} name="name">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae,
-                sapiente!
-              </ClientCard>
-            </div>
-          </section>
-
-          <section className="about-services">
-            <div className="contenedor flex flex-wrap gap-3 justify-center">
-              <h2 className="basis-full text-4xl font-extrabold text-base text-center mb-5">
-                Nuestros servicios
-              </h2>
-              <Card
-                image={ilustracion1}
-                title="Noteworthy technology acquisitions 2021"
-              >
-                Here are the biggest enterprise technology acquisitions of 2021
-                so far, in reverse chronological order.
-              </Card>
-              <Card
-                image={ilustracion2}
-                title="Noteworthy technology acquisitions 2021"
-              >
-                Here are the biggest enterprise technology acquisitions of 2021
-                so far, in reverse chronological order.
-              </Card>
-              <Card
-                image={ilustracion3}
-                title="Noteworthy technology acquisitions 2021"
-              >
-                Here are the biggest enterprise technology acquisitions of 2021
-                so far, in reverse chronological order.
-              </Card>
             </div>
           </section>
         </section>
@@ -125,7 +132,7 @@ export function CarouselItem({
     <div className="relative flex items-center justify-center">
       <img src={src} alt={title} className="aspect-video" />
       <div className="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
-        <span className="lg:text-xl leading-4 text-base lg:leading-5 text-white">
+        <span className="lg:text-3xl leading-4 text-base lg:leading-5 text-white">
           {title}
         </span>
         {/* <span className="">{children}</span> */}
