@@ -1,4 +1,4 @@
-import { articleImage } from '../assets/img';
+import { useEffect, useState } from 'react';
 import { Aside } from '../components/Aside';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
@@ -10,7 +10,6 @@ import {
   AiFillClockCircle,
   AiFillBook
 } from 'react-icons/ai';
-import { useEffect, useState } from 'react';
 
 export function Content() {
   const { id } = useParams();
@@ -19,7 +18,7 @@ export function Content() {
 
   const [authors, setAuthors] = useState<any>([]);
 
-  const downloadContent = (route: any, name: any) => {
+  const downloadContent = (route: string, name: string) => {
     const router = 'http://localhost:3000/download/' + route;
     fetch(router)
       .then((response) => {
@@ -55,7 +54,7 @@ export function Content() {
       .catch((error) => {
         console.error('Error al obtener datos:', error);
       });
-  }, []);
+  }, [id]);
 
   return (
     <>
@@ -64,7 +63,7 @@ export function Content() {
         <Aside />
         <main className="basis-8/12 flex-grow">
           <div className="grid place-content-center gap-6">
-            <h1 className="text-2xl font-extrabold text-primary text-center mt-7">
+            <h1 className="text-2xl font-extrabold text-primary mt-7 text-center">
               {content.content_title}
             </h1>
             <div className="flex flex-wrap gap-6 p-4 justify-center">
@@ -85,7 +84,7 @@ export function Content() {
                   downloadContent(content.route_pdf, content.name_pdf)
                 }
                 type="button"
-                className="focus:outline-none text-white bg-green hover:bg-green focus:ring-4 focus:ring-green font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 flex gap-3"
+                className="focus:outline-none text-white bg-green hover:bg-emerald-900 transition-colors focus:ring-4 focus:ring-green font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 flex gap-3"
               >
                 <AiOutlineDownload className="h-6 w-6" />
                 <p>Descargar</p>
@@ -120,7 +119,6 @@ export function Content() {
                         </div>
                       );
                     })}
-
                     {/* </div> */}
                   </li>
                 </ul>
