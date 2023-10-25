@@ -2,7 +2,6 @@ import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 
 import { Aside } from '../components/Aside';
-import { articleImage } from '../assets/img';
 import { useEffect, useState } from 'react';
 /* import { articleImage } from '../assets/img'; */
 import { defaultImg } from '../assets/img';

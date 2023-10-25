@@ -2,7 +2,7 @@ import { Sidebar } from 'flowbite-react';
 import { twMerge } from 'tailwind-merge';
 import { HiOutlineMinusSm, HiOutlinePlusSm, HiTable } from 'react-icons/hi';
 
-export function Aside({data,handleSections}:any) {
+export function Aside({handleSections}:any) {
   const handleAc = (ae:any)=>{
     const newData=ae
     handleSections(newData)

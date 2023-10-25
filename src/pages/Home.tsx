@@ -2,17 +2,9 @@
 import { Header } from '../components/Header';
 import { Carousel } from 'flowbite-react';
 
-import { ReactNode, useEffect, useState } from 'react';
-import {
-  clickIcon,
-  image1,
-  image2,
-  image3,
-  image4,
-  image5,
-  image6,
-  image7
-} from '../assets/img';
+import { ReactNode} from 'react';
+
+
 import { Banner } from '../components/Banner';
 import { Footer } from '../components/Footer';
 import { GalleryItem } from '../components/GalleryItem';
@@ -190,54 +182,3 @@ export function Card({
     </div>
   );
 }
-
-const galleryData = [
-  {
-    text: 'Nuestro Trabajo',
-    image: image1,
-    icon: clickIcon,
-    name: 'Karla Huamaní'
-  },
-  {
-    text: 'Nuestro Trabajo',
-    image: image2,
-    icon: clickIcon,
-    name: 'Fernando Quesada'
-  },
-  {
-    text: 'Nuestro Trabajo',
-    image: image3,
-    icon: clickIcon,
-    name: 'Alessandra Estrada'
-  },
-  {
-    text: 'Nuestro Trabajo',
-    image: image4,
-    icon: clickIcon,
-    name: 'Dante Macazana'
-  },
-  {
-    text: 'Nuestro Trabajo',
-    image: image5,
-    icon: clickIcon,
-    name: 'Naysha Coronado'
-  },
-  {
-    text: 'Nuestro Trabajo',
-    image: image6,
-    icon: clickIcon,
-    name: 'Brian Vega'
-  },
-  {
-    text: 'Nuestro Trabajo',
-    image: image7,
-    icon: clickIcon,
-    name: 'Eli Carrillo'
-  },
-  {
-    text: 'Nuestro Trabajo',
-    image: image7,
-    icon: clickIcon,
-    name: 'Yajaira Apolinario'
-  }
-];
